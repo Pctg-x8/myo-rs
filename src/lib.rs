@@ -1,7 +1,5 @@
 //! Myo Armband
 
-#![feature(raw)]
-
 extern crate libc;
 
 mod ffi;
