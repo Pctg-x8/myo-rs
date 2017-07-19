@@ -1,3 +1,4 @@
+//! Receiving Events
 
 extern crate myo;
 
@@ -31,9 +32,10 @@ impl myo::EventListener for EventLogger
         let device = event.device();
         println!("{} {} Arm Synced! on {:?}, +x {:?}, warm? {:?}, estimated device rotation {} rad",
             event.timestamp(), device.raw_id(), event.arm(), event.xdirection(), event.warmup_state(), event.rotation_on_arm());
+        /// Request RSSI and Battery Level immediately.
         device.request_rssi().unwrap();
         device.request_battery_level().unwrap();
-        device.set_stream_emg(true).unwrap();
+        // device.set_stream_emg(true).unwrap();
         myo::HandlerResult::Continue
     }
     fn on_arm_unsynced(&mut self, event: myo::ArmUnsyncedEvent) -> myo::HandlerResult
