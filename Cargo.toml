@@ -1,0 +1,7 @@
+[package]
+name = "myo"
+version = "0.9.0"
+authors = ["S.Percentage <Syn.Tri.Naga@gmail.com>"]
+
+[dependencies]
+libc = "0.2"
